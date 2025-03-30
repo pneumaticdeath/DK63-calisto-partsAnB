@@ -1,2 +1,3 @@
 *.blend1
 *.gcode
+.DS_Store
