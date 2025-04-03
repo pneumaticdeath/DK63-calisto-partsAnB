@@ -1,12 +1,25 @@
 include <RoundAnything/polyround.scad>
 
+width = 25.4*(11+5/8);
+corner_radius = 4.75;
+
+top_thickness = 25.4*0.52;
+top_angle = 9.5;
+top_depth = 25.4*(4+3/16);
+
+bottom_angle = 10.5;
+bottom_depth = 25.4*4;
+bottom_thickness = 25.4;
+
+
 // Trying to make a keyboard shaped plug 
-translate([-25.4*(11+9/16)/2, 0, 0])
-    rotate(a=10, v=[1,0,0]) {
+translate([-width/2, 0, 0])
+    rotate(a=bottom_angle, v=[1,0,0]) {
         translate([0, 0, 25.4*0.1875])
-            rotate(a=10, v=[1,0,0])
-                shell( 25.4*(11+9/16), 25.4*(4+3/16), 25.4*0.5, 4.75);
-        shell( 25.4*(11+9/16), 25.4*4, 25.4, 4.75);
+            rotate(a=top_angle, v=[1,0,0])
+                // TOP
+                shell( width, top_depth, top_thickness, corner_radius);
+        shell( width, bottom_depth, bottom_thickness, corner_radius);
         translate([ 2*25.4, 25.4*3.9, 25.4*.1875])
             linear_extrude(height=25.4*0.8125)
                 square([25.4*3/4, 25.4*2]);
