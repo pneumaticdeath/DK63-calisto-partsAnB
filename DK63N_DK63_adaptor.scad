@@ -21,8 +21,9 @@ translate([-width/2, 0, 0])
                 shell( width, top_depth, top_thickness, corner_radius);
         shell( width, bottom_depth, bottom_thickness, corner_radius);
         translate([ 2*25.4, 25.4*3.9, 25.4*.1875])
-            linear_extrude(height=25.4*0.8125)
-                square([25.4*3/4, 25.4*2]);
+            rotate(a=-5, v=[1,0,0])
+                linear_extrude(height=25.4*0.875)
+                    square([25.4*3/4, 25.4*2]);
     };
                     
 
